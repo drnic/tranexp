@@ -88,7 +88,13 @@ Or fetch the source from:
     rake test
     rake install_gem
 
-* rubyforge: coming soon
+* rubyforge: http://rubyforge.org/scm/?group_id=6064
+
+    git clone git://rubyforge.org/tranexp.git
+    cd tranexp
+    rake test
+    rake install_gem
+    
 
 == LICENSE:
 
