@@ -6,4 +6,4 @@
 require File.dirname(__FILE__) + "/../lib/tranexp"
 require "tranexp/command"
 
-puts Tranexp::Command.run(STDIN, *ARGV)
+puts Tranexp::Command.run(STDIN.read, *ARGV)
