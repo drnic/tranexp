@@ -1,36 +1,68 @@
 = tranexp
 
-* FIX (url)
+* http://tranexp.rubyforge.org
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Translates words or phrases from one language to another, using 
+http://www.tranexp.com:2000/Translate/result.shtml
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+Has a command-line and API.
 
-== SYNOPSIS:
+=== Command Line
 
-  FIX (code sample of usage)
+To translate some text from Danish to English:
+
+    cat some_danish_text.txt | tranexp dan eng
+
+That is, you pass the input text via STDIN.
+
+=== API
+
+To translate some text from English to Norwegian:
+  
+    translate = Tranexp::Http.new
+    english = translate.translate("metoder", Tranexp::Http::Norwegian, Tranexp::Http::English)
+    english = translate.translate("metoder", "nor", "eng")
+    
+Or use the dynamic helper:
+  
+    translate.from_nor_to_eng("metoder")
+
+== SYNOPSIS
+
+* Translates between the following languages:
+    "BrazilianPortuguese" => "pob",
+    "Bulgarian" => "bul",
+    "Croatian" => "cro",
+    "Czech" => "che",
+    "Danish" => "dan",
+    "English" => "eng",
+    "Norwegian" => "nor"
+
+(there are more, I just haven't added their codes yet... DIY - lib/tranexp/codes.rb)
+
+Future versions might support the 2 character abbreviations for languages; currently
+it just supports the 3 character codes used within tranexp.
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* mechanize rubygem
+* internet connection
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* gem install tranexp
 
 == LICENSE:
 
-(The MIT License)
-
-Copyright (c) 2008 FIX
+Copyright (c) 2008 Dr Nic Williams
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
+"Software"), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
@@ -39,10 +71,10 @@ the following conditions:
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
-CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
-TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
-SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
