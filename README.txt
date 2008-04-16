@@ -76,6 +76,17 @@ it just supports the 3 character codes used within tranexp.
 
 * gem install tranexp
 
+Or fetch the source from:
+
+* github: http://github.com/drnic/tranexp/tree/master
+
+    git clone git://github.com/drnic/tranexp.git
+    cd tranexp
+    rake test
+    rake install_gem
+
+* rubyforge: coming soon
+
 == LICENSE:
 
 Copyright (c) 2008 Dr Nic Williams
