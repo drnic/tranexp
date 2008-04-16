@@ -34,15 +34,35 @@ Or use the dynamic helper:
 == SYNOPSIS
 
 * Translates between the following languages:
-    "BrazilianPortuguese" => "pob",
-    "Bulgarian" => "bul",
-    "Croatian" => "cro",
-    "Czech" => "che",
-    "Danish" => "dan",
-    "English" => "eng",
-    "Norwegian" => "nor"
-
-(there are more, I just haven't added their codes yet... DIY - lib/tranexp/codes.rb)
+  "English" => "eng",
+  "BrazilianPortuguese" => "pob",
+  "Bulgarian" => "bul",
+  "Croatian" => "cro",
+  "Czech" => "che",
+  "Danish" => "dan",
+  "Dutch" => "dut",
+  "Spanish" => "spa",
+  "Finnish" => "fin",
+  "French" => "fre",
+  "German" => "ger",
+  "Greek" => "grk",
+  "Hungarian" => "hun",
+  "Icelandic" => "ice",
+  "Italian" => "ita",
+  "Japanese" => "jpn",
+  "Latin American Spanish" => "spl",
+  "Norwegian" => "nor",
+  "Filipino" => "tag",
+  "Polish" => "pol",
+  "Portuguese" => "poe",
+  "Romanian" => "rom",
+  "Russian" => "rus",
+  "Serbian" => "sel",
+  "Slovenian" => "slo",
+  "Swedish" => "swe",
+  "Welsh" => "wel",
+  "Turkish" => "tur",
+  "Latin" => "ltt"
 
 Future versions might support the 2 character abbreviations for languages; currently
 it just supports the 3 character codes used within tranexp.
