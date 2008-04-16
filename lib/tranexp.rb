@@ -6,12 +6,9 @@ $KCODE='u'
 module Tranexp; end
 
 begin
-  require 'rubygems'
-  require "active_support"
-  $:.unshift "/Users/nicwilliams/gems/mechanize/lib"
   require 'mechanize'
 rescue LoadError
-  # require 'rubygems'
+  require 'rubygems'
   gem 'mechanize', '>=0.7.5'
   require 'mechanize'
 end
