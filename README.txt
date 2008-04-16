@@ -16,8 +16,11 @@ Has a command-line and API.
 To translate some text from Danish to English:
 
     cat some_danish_text.txt | tranexp dan eng
+    
+    echo "jeg ville like en flaske vin" | tranexp nor
+    I would like a bottle of wine
 
-That is, you pass the input text via STDIN.
+That is, you pass the input text via STDIN. The default target language is English ('eng').
 
 === API
 
