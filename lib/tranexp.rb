@@ -1,12 +1,13 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-module Tranexp
-  
-end
+$KCODE='u'
+
+module Tranexp; end
 
 begin
   require 'mechanize'
+  require "active_support"
 rescue LoadError
   require 'rubygems'
   gem 'mechanize', '>=0.7.5'
