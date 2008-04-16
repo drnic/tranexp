@@ -2,11 +2,14 @@ require 'tranexp/version'
 
 AUTHOR = 'Dr Nic Williams'  # can also be an array of Authors
 EMAIL = "drnicwilliams@gmail.com"
-DESCRIPTION = "description of gem"
+DESCRIPTION = "Uses tranexp.com to perform translations between languages"
 GEM_NAME = 'tranexp' # what ppl will type to install your gem
 RUBYFORGE_PROJECT = 'tranexp' # The unix name for your project
 HOMEPATH = "http://#{RUBYFORGE_PROJECT}.rubyforge.org"
 DOWNLOAD_PATH = "http://rubyforge.org/projects/#{RUBYFORGE_PROJECT}"
+EXTRA_DEPENDENCIES = [
+  ['mechanize', '>=0.7.5']
+]    # An array of rubygem dependencies [name, version], e.g. [ ['active_support', '>= 1.3.1'] ]
 
 @config_file = "~/.rubyforge/user-config.yml"
 @config = nil
@@ -28,21 +31,21 @@ Run 'rubyforge setup' to prepare your env for access to Rubyforge
 end
 
 
-REV = nil 
-# UNCOMMENT IF REQUIRED: 
+REV = nil
+# UNCOMMENT IF REQUIRED:
 # REV = `svn info`.each {|line| if line =~ /^Revision:/ then k,v = line.split(': '); break v.chomp; else next; end} rescue nil
 VERS = Tranexp::VERSION::STRING + (REV ? ".#{REV}" : "")
 RDOC_OPTS = ['--quiet', '--title', 'tranexp documentation',
     "--opname", "index.html",
-    "--line-numbers", 
+    "--line-numbers",
     "--main", "README",
     "--inline-source"]
 
 class Hoe
-  def extra_deps 
-    @extra_deps.reject! { |x| Array(x).first == 'hoe' } 
+  def extra_deps
+    @extra_deps.reject! { |x| Array(x).first == 'hoe' }
     @extra_deps
-  end 
+  end
 end
 
 # Generate all the Rake tasks
@@ -55,13 +58,13 @@ $hoe = Hoe.new(GEM_NAME, VERS) do |p|
   p.rubyforge_name = RUBYFORGE_PROJECT if RUBYFORGE_PROJECT
   p.test_globs = ["test/**/test_*.rb"]
   p.clean_globs |= ['**/.*.sw?', '*.gem', '.config', '**/.DS_Store']  #An array of file patterns to delete on clean.
-  
+
   # == Optional
   p.changes = p.paragraphs_of("History.txt", 0..1).join("\n\n")
-  #p.extra_deps = []     # An array of rubygem dependencies [name, version], e.g. [ ['active_support', '>= 1.3.1'] ]
-  
+  p.extra_deps = EXTRA_DEPENDENCIES
+
   #p.spec_extras = {}    # A hash of extra values to set in the gemspec.
-  
+
 end
 
 CHANGES = $hoe.paragraphs_of('History.txt', 0..1).join("\\n\\n")
