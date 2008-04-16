@@ -28,8 +28,7 @@ class Tranexp::Http
   protected
   def clean_up dirty_text
     newstr = ""
-    dirty_text.length.times do |i|
-      character = dirty_text[i]
+    dirty_text.each_byte do |character|
       newstr += if character < 0x80
         character.chr
       elsif character < 0xC0

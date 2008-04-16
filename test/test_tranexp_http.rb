@@ -16,7 +16,7 @@ class TestTranexpHttp < Test::Unit::TestCase
     end
   end
 
-  def test_utf8
+  def test_utf8_from_eng_to_nor
     if_connected do
       assert_nothing_thrown do
         english = translate.translate("i would like to learn Norwegian", Tranexp::Http::English, Tranexp::Http::Norwegian)
