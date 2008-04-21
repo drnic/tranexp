@@ -11,6 +11,9 @@ http://www.tranexp.com:2000/Translate/result.shtml
 
 Has a command-line and API.
 
+Caches results in a local YAML file to make subsequent requests for
+same query faster. (REQUIRES: 'HOME' environment variable set to a folder)
+
 === Command Line
 
 To translate some text from Danish to English:

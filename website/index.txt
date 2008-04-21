@@ -15,6 +15,12 @@ h2. The basics
 
 Has a command-line and API.
 
+Caches results in a local YAML file to make subsequent requests for
+same query faster. 
+
+REQUIRES: 'HOME' environment variable set to a folder.
+
+
 h3. Command Line
 
 To translate some text from Danish to English:
