@@ -5,6 +5,8 @@ $KCODE='u'
 
 module Tranexp; end
 
+require "fileutils"
+
 begin
   require 'mechanize'
 rescue LoadError
@@ -15,3 +17,5 @@ end
 
 require "tranexp/codes"
 require "tranexp/http"
+require "tranexp/cache"
+require "tranexp/translate"

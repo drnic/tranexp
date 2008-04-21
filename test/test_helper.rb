@@ -1,5 +1,6 @@
 require 'test/unit'
 require File.dirname(__FILE__) + '/../lib/tranexp'
+require "fileutils"
 
 require 'rubygems'
 gem 'mocha'
