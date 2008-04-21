@@ -25,12 +25,12 @@ class TestTranexpHttp < Test::Unit::TestCase
     end
   end
 
-  def test_english_to_norwegian_method_missing
-    translate.expects(:translate).with("metoder", "nor", "eng").returns("methods")
+  # TODO test_nor_to_eng_fancy_chars
+  def TODO_test_nor_to_eng_fancy_chars
     if_connected do
       assert_nothing_thrown do
-        english = translate.from_nor_to_eng("metoder")
-        assert_equal("methods", english)
+        english = translate.translate("rød", Tranexp::Http::Norwegian, Tranexp::Http::English)
+        assert_equal("red", english)
       end
     end
   end

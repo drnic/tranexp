@@ -4,12 +4,13 @@ class Tranexp::Http
 
   def translate(text, from, to="eng")
     @agent ||=  WWW::Mechanize.new
+    @agent.set_proxy("localhost", "8890") if ENV['CHARLES']
     page = @agent.post(PostURL)
     # charset=windows-1252
     page = @agent.post(PostURL, {
       :from => from,
       :to   => to,
-      :text => text,
+      :text => prepare(text),
       :keyb => "non",
       "Submit.x" => 33,
       "Submit.y" => 9,
@@ -18,16 +19,11 @@ class Tranexp::Http
     clean_up page.forms[1]['translation']
   end
 
-  # Support calls like #from_nor_to_eng, or #from_eng_to_
-  def method_missing(meth, *args, &blk)
-    if meth.to_s =~ /^from_([a-z]+)_to_([a-z]+)$/
-      from, to = $1, $2
-      return translate(args.first, from, to)
-    end
-    super
+  protected
+  def prepare raw_text
+    raw_text # how do we prepare unicode? ø -> %F8
   end
 
-  protected
   def clean_up dirty_text
     newstr = ""
     dirty_text.each_byte do |character|
