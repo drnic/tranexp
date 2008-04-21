@@ -4,6 +4,8 @@ class Tranexp::Http
 
   def translate(text, from, to="eng")
     @agent ||=  WWW::Mechanize.new
+    page = @agent.post(PostURL)
+    # charset=windows-1252
     page = @agent.post(PostURL, {
       :from => from,
       :to   => to,
