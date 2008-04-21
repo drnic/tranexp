@@ -8,8 +8,10 @@ module Tranexp
     end
 
     def translate(text, from, to="eng")
-      cache.translate(text, from, to) ||
-      http.translate(text, from, to)
+      cache.translate(text, from, to) || begin
+        translation = http.translate(text, from, to)
+        cache.store(text, translation, from, to)
+      end
     end
   end
 

@@ -6,6 +6,7 @@ $KCODE='u'
 module Tranexp; end
 
 require "fileutils"
+require "yaml"
 
 begin
   require 'mechanize'

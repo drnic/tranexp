@@ -13,7 +13,7 @@ class TestCaching < Test::Unit::TestCase
   end
 
   def teardown
-    FileUtils.rmdir File.dirname(__FILE__) + '/cache/' rescue nil
+    FileUtils.rm_rf File.dirname(__FILE__) + '/cache/'
   end
 
   def test_cache_db_created
@@ -24,6 +24,8 @@ class TestCaching < Test::Unit::TestCase
     do_translation
     assert File.directory?(File.dirname(__FILE__) + '/cache/.tranexp'),
           "HOME/.tranexp not created"
+    assert File.exists?(File.dirname(__FILE__) + '/cache/.tranexp/nor-eng.yml'),
+          "HOME/.tranexp/nor-eng.yml not created"
   end
 
   def test_requests_are_cached
