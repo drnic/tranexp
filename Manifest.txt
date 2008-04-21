@@ -7,10 +7,13 @@ bin/tranexp
 config/hoe.rb
 config/requirements.rb
 lib/tranexp.rb
+lib/tranexp/cache.rb
 lib/tranexp/codes.rb
 lib/tranexp/command.rb
 lib/tranexp/http.rb
+lib/tranexp/translate.rb
 lib/tranexp/version.rb
+ruby
 script/console
 script/destroy
 script/generate
@@ -19,9 +22,11 @@ setup.rb
 tasks/deployment.rake
 tasks/environment.rake
 tasks/website.rake
+test/test_caching.rb
 test/test_command.rb
 test/test_helper.rb
 test/test_tranexp_http.rb
+test/test_translate.rb
 website/index.html
 website/index.txt
 website/javascripts/rounded_corners_lite.inc.js

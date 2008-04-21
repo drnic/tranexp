@@ -1,13 +1,14 @@
 require File.dirname(__FILE__) + '/test_helper.rb'
 
-class TestTranexpHttp < Test::Unit::TestCase
+class TestTranslate < Test::Unit::TestCase
   attr_reader :translate
 
   def setup
     @translate = Tranexp::Translate.new
   end
 
-  def test_english_to_norwegian_method_missing
+  # TODO - test_english_to_norwegian_method_missing
+  def TODO_test_english_to_norwegian_method_missing
     if_connected do
       translate.expects(:translate).with("metoder", "nor", "eng").returns("methods")
       assert_nothing_thrown do

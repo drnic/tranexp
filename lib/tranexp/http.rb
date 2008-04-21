@@ -35,7 +35,7 @@ class Tranexp::Http
         "\xC3" + (character - 64).chr
       end
     end
-    newstr
+    newstr.strip
   end
 end
 

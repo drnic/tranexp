@@ -1,3 +1,7 @@
+== 1.1.0 2008-04-21
+
+* Caching of results in yaml files; per from-to lang pair
+
 == 1.0.1 2008-04-16
 
 * faster clean_up algorithm [Peter Cooper] http://snippets.dzone.com/posts/show/5367
